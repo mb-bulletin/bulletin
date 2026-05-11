@@ -1,0 +1,412 @@
+{
+  "parish": {
+    "name": "The Basilica of St. Patrick's Old Cathedral",
+    "locations": [
+      {
+        "id": "main",
+        "name": "The Basilica of St. Patrick's Old Cathedral",
+        "address": "263 Mulberry Street, New York, NY 10012",
+        "phone": "(212) 226-8075",
+        "website": "oldcathedral.org"
+      },
+      {
+        "id": "mpb",
+        "name": "Shrine Church of the Most Precious Blood",
+        "address": "113 Baxter Street, New York, NY 10013",
+        "phone": null,
+        "website": null
+      }
+    ],
+    "staff": [
+      {
+        "name": "Rev. Daniel Ray, LC",
+        "role": "Pastor",
+        "email": null
+      },
+      {
+        "name": "Rev. Luigi Portarulo",
+        "role": "Parochial Vicar - Italian Community",
+        "email": null
+      },
+      {
+        "name": "Anthony Cregan",
+        "role": "Business Manager",
+        "email": "anthony@oldcathedral.org"
+      },
+      {
+        "name": "Rosa Jimenez",
+        "role": "Secretary & Wedding Coordinator",
+        "email": "rosa@oldcathedral.org"
+      }
+    ]
+  },
+  "liturgical_day": {
+    "name": "Sixth Sunday of Easter",
+    "date": "2026-05-10",
+    "readings": [
+      "Acts 8:5-8, 14-17",
+      "1 Peter 3:15-18",
+      "John 14:15-21"
+    ]
+  },
+  "week_starting": "2026-05-10",
+  "recurring_schedule": [
+    {
+      "kind": "vigil_mass",
+      "weekday": "saturday",
+      "start_time": "17:00:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "sunday",
+      "start_time": "09:00:00",
+      "end_time": null,
+      "language": "es",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "sunday",
+      "start_time": "10:30:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "sunday",
+      "start_time": "12:00:00",
+      "end_time": null,
+      "language": "it",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "sunday",
+      "start_time": "19:00:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "monday",
+      "start_time": "12:10:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "tuesday",
+      "start_time": "12:10:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "wednesday",
+      "start_time": "12:10:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "thursday",
+      "start_time": "12:10:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "friday",
+      "start_time": "12:10:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "confession",
+      "weekday": "saturday",
+      "start_time": "16:15:00",
+      "end_time": "16:45:00",
+      "language": null,
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "confession",
+      "weekday": "sunday",
+      "start_time": "18:00:00",
+      "end_time": "18:45:00",
+      "language": null,
+      "location_id": "main",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "sunday",
+      "start_time": "12:00:00",
+      "end_time": null,
+      "language": "en",
+      "location_id": "mpb",
+      "notes": null
+    },
+    {
+      "kind": "mass",
+      "weekday": "sunday",
+      "start_time": "14:00:00",
+      "end_time": null,
+      "language": "vi",
+      "location_id": "mpb",
+      "notes": null
+    }
+  ],
+  "schedule_exceptions": [
+    {
+      "kind": "added",
+      "date": "2026-05-10",
+      "end_date": "2026-05-24",
+      "affects_service": "mass",
+      "affects_time": null,
+      "new_time": "17:00:00",
+      "description": "Temporary 5:00pm English Mass on Sundays until Pentecost (May 24).",
+      "location_id": "main"
+    }
+  ],
+  "mass_intentions": [
+    {
+      "date": "2026-05-09",
+      "time": "17:00:00",
+      "intention_for": "Mary & Anne De Bonis, Celeste & Isabella Tangora",
+      "requested_by": "Antoinette",
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "09:00:00",
+      "intention_for": "all mothers",
+      "requested_by": null,
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "10:30:00",
+      "intention_for": "all mothers",
+      "requested_by": null,
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "12:00:00",
+      "intention_for": "all mothers",
+      "requested_by": null,
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "17:00:00",
+      "intention_for": "all mothers",
+      "requested_by": null,
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "19:00:00",
+      "intention_for": "all mothers",
+      "requested_by": null,
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "12:10:00",
+      "intention_for": "Andrew & Irene Chan",
+      "requested_by": "Robert & Virginia Lugo",
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "12:10:00",
+      "intention_for": "Maria Filomena Nuñez",
+      "requested_by": "Agustina Rodriguez",
+      "is_deceased": true,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "12:10:00",
+      "intention_for": "Fausto Ortiz",
+      "requested_by": "family",
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "12:10:00",
+      "intention_for": "Irene & Andrew Chan",
+      "requested_by": "family",
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "12:10:00",
+      "intention_for": "Karael Cruz",
+      "requested_by": "family",
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "12:10:00",
+      "intention_for": "Angelina Torrisi",
+      "requested_by": "Eric Skae",
+      "is_deceased": false,
+      "location_id": "main"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "17:00:00",
+      "intention_for": "GiGi Boetto",
+      "requested_by": "Shauna Simonot",
+      "is_deceased": false,
+      "location_id": "main"
+    }
+  ],
+  "announcements": [
+    {
+      "title": "OSP Hospitality Presents: The Saints",
+      "body": "Film screening with reception. Reception at 6:00 PM, screening at 7:00 PM. All are welcome, bring a friend!",
+      "category": "event",
+      "event_date": "2026-05-13",
+      "event_time": "18:00:00",
+      "location": null,
+      "contact_email": null,
+      "contact_phone": null,
+      "register_url": "https://luma.com/j2ydh30q",
+      "priority": 2
+    },
+    {
+      "title": "Marriage Convalidation",
+      "body": "Married by the state but not yet by the Catholic Church? Reach out about having your marriage convalidated. This allows you to receive communion at Mass. Doesn't require a big ceremony. No one is turned away for inability to pay.",
+      "category": "sacramental",
+      "event_date": null,
+      "event_time": null,
+      "location": null,
+      "contact_email": "rosa@oldcathedral.org",
+      "contact_phone": null,
+      "register_url": null,
+      "priority": 5
+    },
+    {
+      "title": "Book Club: The City of God",
+      "body": "Sundays at 5:50pm, 32 Prince St. Beginning May 10, studying The City of God by Saint Augustine.",
+      "category": "ministry",
+      "event_date": "2026-05-10",
+      "event_time": "17:50:00",
+      "location": "32 Prince St",
+      "contact_email": null,
+      "contact_phone": null,
+      "register_url": null,
+      "priority": 4
+    },
+    {
+      "title": "Victim Assistance",
+      "body": "To report alleged abuse, contact Eileen Mulcahy at 646-794-2949 or victimsassistance@archny.org, or the NY County DA's Office at 212-335-9373.",
+      "category": "safety",
+      "event_date": null,
+      "event_time": null,
+      "location": null,
+      "contact_email": "victimsassistance@archny.org",
+      "contact_phone": "646-794-2949",
+      "register_url": null,
+      "priority": 6
+    },
+    {
+      "title": "Recurring Giving via WeShare",
+      "body": "Set up weekly or monthly recurring donations through WeShare to support the parish even when away.",
+      "category": "stewardship",
+      "event_date": null,
+      "event_time": null,
+      "location": null,
+      "contact_email": null,
+      "contact_phone": null,
+      "register_url": null,
+      "priority": 7
+    },
+    {
+      "title": "Catacombs by Candlelight Tours",
+      "body": "90-minute tour through two centuries of history. Visit oldcathedral.org/tours.",
+      "category": "operational",
+      "event_date": null,
+      "event_time": null,
+      "location": null,
+      "contact_email": null,
+      "contact_phone": null,
+      "register_url": null,
+      "priority": 8
+    },
+    {
+      "title": "Gift Shop Open",
+      "body": "266 Mulberry Street, Thursday-Monday 10am-5pm. Also shop online.",
+      "category": "operational",
+      "event_date": null,
+      "event_time": null,
+      "location": null,
+      "contact_email": null,
+      "contact_phone": null,
+      "register_url": null,
+      "priority": 9
+    },
+    {
+      "title": "Burial Services at the Basilica",
+      "body": "Limited niches available in the only operating Catholic graveyard and catacombs in Manhattan. Contact Frank Alfieri.",
+      "category": "operational",
+      "event_date": null,
+      "event_time": null,
+      "location": null,
+      "contact_email": "frank@oldcathedral.org",
+      "contact_phone": "(212) 226-8075",
+      "register_url": null,
+      "priority": 8
+    }
+  ],
+  "collections": [
+    {
+      "location_id": "main",
+      "amount_usd": 9123.36,
+      "week_of": null
+    },
+    {
+      "location_id": "mpb",
+      "amount_usd": 668.0,
+      "week_of": null
+    }
+  ],
+  "raw_text_sha256": null,
+  "parser_version": "1.0.0",
+  "parsed_at": null
+}

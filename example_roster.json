@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ny-old-st-patricks",
+    "name": "Basilica of St. Patrick's Old Cathedral",
+    "host_kind": "ecatholic",
+    "ecatholic_id": "11778",
+    "diocese": "Archdiocese of New York",
+    "city": "New York",
+    "state": "NY",
+    "timezone": "America/New_York",
+    "active": 1
+  },
+  {
+    "id": "ny-st-john-evangelist-mahopac",
+    "name": "St. John the Evangelist",
+    "host_kind": "ecatholic",
+    "ecatholic_id": "10690",
+    "diocese": "Archdiocese of New York",
+    "city": "Mahopac",
+    "state": "NY",
+    "timezone": "America/New_York",
+    "active": 1
+  },
+  {
+    "id": "example-generic-parish",
+    "name": "Example Generic-Site Parish",
+    "host_kind": "generic_html",
+    "bulletins_url": "https://example.org/bulletins",
+    "diocese": "Example Diocese",
+    "city": "Anywhere",
+    "state": "XX",
+    "active": 0
+  }
+]

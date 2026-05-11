@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iOS safe-area handling for bottom nav. */
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent rubber-banding ugliness on iOS when scrolling within scroll
+     containers; the app itself owns the only scroll. */
+  overscroll-behavior-y: none;
+}
+
+/* A small "card" primitive used across screens. */
+.card {
+  @apply rounded-2xl bg-white shadow-sm border border-parish-200 px-5 py-4;
+}
+
+/* Compact list rows inside cards. */
+.row {
+  @apply flex items-baseline justify-between gap-3 py-2;
+}

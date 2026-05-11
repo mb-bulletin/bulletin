@@ -1,0 +1,37 @@
+# Production secrets — never committed
+.env
+.env.local
+
+# Local SQLite + PDF storage
+harness.db
+harness.db-*
+pdfs/
+
+# Eval run artifacts (kept locally for inspection)
+eval_runs/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Node / Vite (in mobile_app/)
+mobile_app/node_modules/
+mobile_app/dist/
+mobile_app/package-lock.json
+mobile_app/tsconfig.tsbuildinfo
+mobile_app/.env.local
+
+# Backups produced by ops/backup.sh
+backups/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo

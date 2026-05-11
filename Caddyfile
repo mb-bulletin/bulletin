@@ -1,0 +1,53 @@
+# Caddy reverse proxy.
+#
+# Automatic Let's Encrypt cert for {$DOMAIN}, terminates TLS, proxies
+# /api/* to the api service, serves the built PWA for everything else.
+#
+# Caddy uses the local `tls internal` mode if the domain doesn't have
+# a public DNS record yet, which is convenient for staging but means
+# clients will see a self-signed cert warning. For production, point
+# DNS at the box first, THEN deploy.
+
+{
+    email {$ACME_EMAIL}
+    # In dev / before DNS is set up:
+    # auto_https disable_redirects
+}
+
+{$DOMAIN} {
+    encode gzip zstd
+
+    # API: strip the /api prefix before forwarding so FastAPI sees
+    # the same paths as in local dev.
+    handle_path /api/* {
+        reverse_proxy api:8000 {
+            health_uri /health
+            health_interval 30s
+        }
+    }
+
+    # Everything else is the PWA. SPA fallback: any unknown path
+    # should serve index.html so client-side routing works on refresh.
+    handle {
+        root * /srv/pwa
+        try_files {path} /index.html
+        file_server
+
+        # The service worker MUST be served with a short cache lifetime
+        # (or no-cache) so updates propagate. Vite's PWA plugin handles
+        # the precache manifest revisioning; we just have to not
+        # over-cache sw.js itself.
+        @sw path /sw.js /registerSW.js
+        header @sw Cache-Control "no-cache, must-revalidate"
+
+        # Hashed asset files can cache forever.
+        @assets path /assets/*
+        header @assets Cache-Control "public, max-age=31536000, immutable"
+    }
+
+    log {
+        output stdout
+        format console
+        level INFO
+    }
+}

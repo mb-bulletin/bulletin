@@ -1,0 +1,74 @@
+# Production compose file.
+#
+# Three services with very different runtime profiles:
+#   caddy    - always-on, public on :80/:443, terminates TLS, reverse-proxies
+#   api      - always-on, internal :8000, read-only over the SQLite DB
+#   harness  - one-shot, no ports, runs the weekly bulletin fetch+parse
+#
+# The harness has no public surface — it's invoked on the host via cron
+# (see ops/cron-harness.sh) which calls `docker compose run --rm harness`.
+#
+# Volumes:
+#   data    - the SQLite DB and stored PDFs. The single durable artifact.
+#   caddy_data, caddy_config - TLS certs and Caddy state (don't lose these
+#             or you'll re-issue certs and may hit Let's Encrypt rate limits).
+
+name: bulletin
+
+services:
+  caddy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./mobile_app/dist:/srv/pwa:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+    environment:
+      # Read by the Caddyfile via {$DOMAIN}. Set in .env.
+      DOMAIN: ${DOMAIN:?DOMAIN must be set in .env}
+      ACME_EMAIL: ${ACME_EMAIL:?ACME_EMAIL must be set in .env}
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bulletin-parser:${VERSION:-latest}
+    restart: unless-stopped
+    # Only reachable from inside the compose network. Caddy proxies to it.
+    expose:
+      - "8000"
+    volumes:
+      - data:/data
+    environment:
+      BULLETIN_DB_PATH: /data/harness.db
+      BULLETIN_PDF_ROOT: /data/pdfs
+      # The API doesn't need ANTHROPIC_API_KEY — only the harness does.
+
+  harness:
+    # Same image as the API; different entrypoint. Profile excludes it
+    # from `docker compose up`, so it ONLY runs when someone (or cron)
+    # does `docker compose run --rm harness ...`.
+    image: bulletin-parser:${VERSION:-latest}
+    profiles: ["oneshot"]
+    volumes:
+      - data:/data
+    environment:
+      BULLETIN_DB_PATH: /data/harness.db
+      BULLETIN_PDF_ROOT: /data/pdfs
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY must be set in .env}
+    # Default command runs one ingestion pass. Cron invokes it.
+    command: ["python", "-m", "bulletin_parser.harness",
+              "--db", "/data/harness.db",
+              "--pdfs", "/data/pdfs",
+              "run"]
+
+volumes:
+  data:
+  caddy_data:
+  caddy_config:

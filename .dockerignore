@@ -1,0 +1,35 @@
+# Everything we don't need in the container.
+# Keep this aggressive — the build context is uploaded to the daemon
+# on every build, so cutting node_modules off saves seconds AND ensures
+# we can't accidentally ship dev data.
+
+# Mobile app — built and served separately
+mobile_app/
+deploy/
+ops/
+.github/
+
+# Local dev artifacts
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/.mypy_cache/
+**/*.egg-info/
+.venv/
+venv/
+
+# Test outputs that may exist locally
+harness.db
+harness.db-*
+pdfs/
+eval_runs/
+
+# Editor/OS junk
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Git
+.git/
+.gitignore
