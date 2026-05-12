@@ -96,16 +96,25 @@ class Fetcher:
         if not self.respect_robots:
             return True, ""
         host = self._host(url)
-        rp = self._robots_cache.get(host)
         if host not in self._robots_cache:
             robots_url = f"{urlsplit(url).scheme}://{host}/robots.txt"
-            rp = RobotFileParser()
-            rp.set_url(robots_url)
+            rp = None
             try:
-                rp.read()
-            except Exception:
-                rp = None  # Treat unreachable robots.txt as no rules
+                # Fetch robots.txt ourselves so we can distinguish
+                # "server forbids access" (treat as no rules) from
+                # "server returned actual robots.txt content".
+                # RobotFileParser.read() interprets 401/403 as
+                # "disallow everything", which is wrong for CDNs that
+                # simply don't serve a robots.txt.
+                r = self._session.get(robots_url, timeout=self.timeout_s)
+                if r.status_code == 200 and r.text:
+                    rp = RobotFileParser()
+                    rp.set_url(robots_url)
+                    rp.parse(r.text.splitlines())
+            except requests.RequestException:
+                rp = None
             self._robots_cache[host] = rp
+        rp = self._robots_cache[host]
         if rp is None:
             return True, ""
         if not rp.can_fetch(self.user_agent, url):
